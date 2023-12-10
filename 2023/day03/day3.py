@@ -29,3 +29,31 @@ with open('day3.txt') as file:
 
              n += number.span()[1]
 print(sum)
+
+
+# Day 3 part 2
+sum = 0
+numbers = list()
+with open('day3.txt') as file:
+    lines = file.readlines()
+    for line_number, line in enumerate(lines):
+        possible_gear = re.finditer(r"\*", line)
+        for g in possible_gear:
+
+             previous_line_number = max(0, line_number - 1)
+             next_line_number = line_number + 2 
+             surrounding_numbers = list()
+
+             for surrounding_line in lines[previous_line_number:next_line_number]:
+                 numbers = re.finditer(r"\d+", surrounding_line)
+                 if numbers:
+                     for n in numbers:
+                         if n.span()[1] >= g.span()[0] and n.span()[0] <= g.span()[1]:
+                             surrounding_numbers.append(n)
+
+             if len(surrounding_numbers) == 2:
+                 power = 1
+                 for value in surrounding_numbers:
+                     power *= int(value.group())
+                 sum += power
+print(sum)
