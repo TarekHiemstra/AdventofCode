@@ -1,5 +1,5 @@
 # Day 1 part 1
-sum = 0
+total = 0
 with open('day1.txt') as file:
     lines = file.readlines()
     for line in lines:
@@ -8,12 +8,12 @@ with open('day1.txt') as file:
             if c.isnumeric():
                 my_list.append(c)
         line_value = str(my_list[0]) + str(my_list[-1])
-        sum += int(line_value)
-print(sum)
+        total += int(line_value)
+print(total)
 
 
 # Day 1 part 2
-sum = 0
+total = 0
 with open('day1.txt') as file:
     lines = file.readlines()
     for line in lines:
@@ -40,5 +40,5 @@ with open('day1.txt') as file:
                     highest_index = last_occurence
                     last_number = numbers.get(number)
         line_value = str(first_number) + str(last_number)
-        sum += int(line_value)
-print(sum)
+        total += int(line_value)
+print(total)

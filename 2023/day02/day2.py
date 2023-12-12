@@ -1,7 +1,7 @@
 import re
 
 # Day 2 part 1
-sum = 0
+total = 0
 with open('day2.txt') as file:
     limits = {"red": 12, "green": 13, "blue": 14}
     lines = file.readlines()
@@ -13,11 +13,11 @@ with open('day2.txt') as file:
                 possible = False
                 break
         if possible:
-            sum += idx + 1
-    print(sum)     
+            total += idx + 1
+    print(total)     
 
 # Day 2 part 2
-sum = 0
+total = 0
 with open('day2.txt') as file:
     lines = file.readlines()
     for idx, line in enumerate(lines):
@@ -31,5 +31,5 @@ with open('day2.txt') as file:
         power = 1
         for value in maximums:
             power *= value   
-        sum += power
-    print(sum)
+        total += power
+    print(total)

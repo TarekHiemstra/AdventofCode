@@ -1,7 +1,7 @@
 import re
 
 # Day 3 part 1
-sum = 0
+total = 0
 numbers = list()
 with open('day3.txt') as file:
     lines = file.readlines()
@@ -24,15 +24,15 @@ with open('day3.txt') as file:
                  for c in surrounding_line[start_char_index:end_char_index]:
                      if c != "." and c!= "\n" and not c.isnumeric(): 
                          is_part_number = True
-                         sum += int(number.group())
+                         total += int(number.group())
                          break
 
              n += number.span()[1]
-print(sum)
+print(total)
 
 
 # Day 3 part 2
-sum = 0
+total = 0
 numbers = list()
 with open('day3.txt') as file:
     lines = file.readlines()
@@ -55,5 +55,5 @@ with open('day3.txt') as file:
                  power = 1
                  for value in surrounding_numbers:
                      power *= int(value.group())
-                 sum += power
-print(sum)
+                 total += power
+print(total)
